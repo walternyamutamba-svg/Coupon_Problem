@@ -40,7 +40,7 @@ def simulate(n: int, trials: int, seed: int = None):
     }
 
 # --- STREAMLIT APP ---
-st.title("🎯 Coupon Collector’s Problem Simulator")
+st.title("🎯 Coupon Collector’s Problem Simulator Done by Group J")
 
 st.markdown("""
 This app simulates the **Coupon Collector's Problem**:
