@@ -30,9 +30,9 @@ def simulate(n: int, trials: int, seed: int = None):
     var = sum((x - mean) ** 2 for x in results) / (len(results) - 1) if len(results) > 1 else 0.0
     std = math.sqrt(var)
     return {
-        "n": n,
+        "(n)Represents the total number of distinct coupon types you need to collect": n,
         #"trials": trials,
-        "mean": mean,
+        "(mean)Mean (from your simulation) represents the average number of cereal boxes you would need to buy to collect all n different coupons": mean,
         #"std": std,
         #"min": min(results),
         #"max": max(results),
