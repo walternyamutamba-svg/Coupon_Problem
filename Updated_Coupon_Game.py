@@ -25,7 +25,7 @@ def simulate(n: int, trials: int = 50, seed: int = 42):
     return mean
 
 # --- STREAMLIT APP ---
-st.title("🎯 AIMS Group J Coupon Collector’s Problem Simulator")
+st.title("🎯Group J : Coupon Collector’s Problem Calculator")
 
 st.markdown("""
 **Group Members:**  
