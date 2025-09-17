@@ -31,12 +31,12 @@ def simulate(n: int, trials: int, seed: int = None):
     std = math.sqrt(var)
     return {
         "n": n,
-        "trials": trials,
+        #"trials": trials,
         "mean": mean,
-        "std": std,
-        "min": min(results),
-        "max": max(results),
-        "all_results": results
+        #"std": std,
+        #"min": min(results),
+        #"max": max(results),
+        #"all_results": results
     }
 
 # --- STREAMLIT APP ---
@@ -78,7 +78,4 @@ if st.button("Run Simulation"):
     with st.expander("See all trial results"):
         st.write(sim_summary["all_results"])
 
-    # Histogram plot using Streamlit-native plotting
-    counts, bins = pd.cut(sim_summary["all_results"], bins=20, retbins=True)
-    hist_data = pd.Series(sim_summary["all_results"]).value_counts().sort_index()
-    st.bar_chart(hist_data)
+   
