@@ -75,7 +75,7 @@ if st.button("Run Simulation"):
     st.json({k: v for k, v in sim_summary.items() if k != "all_results"})
 
     # Show all trial results
-    with st.expander("See all trial results"):
-        st.write(sim_summary["all_results"])
+    #with st.expander("See all trial results"):
+        #st.write(sim_summary["all_results"])
 
    
