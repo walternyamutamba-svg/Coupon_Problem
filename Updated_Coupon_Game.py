@@ -42,7 +42,7 @@ This Web Application calculates the **Coupon Collector's Problem**:
 """)
 
 # User input
-n = st.number_input("Enter number of different coupons (n):", min_value=1, value=10, step=1)
+n = st.number_input("Enter number of different coupons (n) and press enter:", min_value=1, value=10, step=1)
 
 # --- NEW: Automatically show results for default n ---
 analytic = analytic_expected_time(n)
