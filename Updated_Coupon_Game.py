@@ -50,7 +50,7 @@ mean_simulation = simulate(n)
 
 st.subheader("📊 Results")
 st.write(f"**Analytic expected waiting time:** {analytic:.2f} draws")
-st.write(f"**Simulated average number of draws:** {mean_simulation:.2f} draws")
+#st.write(f"**Simulated average number of draws:** {mean_simulation:.2f} draws")
 
 # Optional: Let user recompute if they change n
 if st.button("Re-run Simulation"):
