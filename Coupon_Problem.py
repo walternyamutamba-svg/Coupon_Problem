@@ -63,7 +63,7 @@ This app simulates the **Coupon Collector's Problem**:
 
 # User inputs
 n = st.number_input("Enter number of different coupons (n):", min_value=1, value=10, step=1)
-trials = st.number_input("Enter number of trials for simulation:", min_value=1, value=100, step=1)
+trials = 1000
 
 # Run simulation when button clicked
 if st.button("Run Simulation"):
