@@ -40,7 +40,19 @@ def simulate(n: int, trials: int, seed: int = None):
     }
 
 # --- STREAMLIT APP ---
-st.title("🎯 Coupon Collector’s Problem Simulator Done by Group J")
+st.title("AIMS Group J Coupon Collector’s Problem Simulator ")
+# Title
+st.title("🎯 AIMS Group J Coupon Collector’s Problem Simulator")
+
+# Group members nicely formatted
+st.markdown("""
+**Group Members:**  
+- Walter Nyamutamba  
+- Olaoluwasubomi Lois Ige  
+- Maniraguha Viviane  
+- Patrick Nizetimana  
+- Irakoze Mireille
+""")
 
 st.markdown("""
 This app simulates the **Coupon Collector's Problem**:
