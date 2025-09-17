@@ -1,8 +1,6 @@
 import streamlit as st
 import random
 import math
-import pandas as pd
-from time import sleep
 
 # --- Coupon Collector Functions ---
 def harmonic_number(n: int) -> float:
@@ -23,26 +21,12 @@ def simulate_one(n: int) -> int:
         seen.add(coupon)
     return draws
 
-def simulate(n: int, trials: int, seed: int = None):
-    """Simulate multiple experiments with progress display."""
-    if seed is not None:
-        random.seed(seed)
-    results = []
-    progress_bar = st.progress(0)
-    for i in range(trials):
-        results.append(simulate_one(n))
-        progress_bar.progress((i+1)/trials)
+def simulate(n: int, trials: int = 50, seed: int = 42):
+    """Simulate multiple experiments and return mean number of draws."""
+    random.seed(seed)
+    results = [simulate_one(n) for _ in range(trials)]
     mean = sum(results) / len(results)
-    var = sum((x - mean) ** 2 for x in results) / (len(results) - 1) if len(results) > 1 else 0.0
-    std = math.sqrt(var)
-    return {
-        "(n) Total distinct coupon types you need to collect": n,
-        "(mean) Average number of cereal boxes needed to collect all n coupons": mean,
-        "std (variability of draws)": std,
-        "min draws": min(results),
-        "max draws": max(results),
-        "all_results": results
-    }
+    return mean
 
 # --- STREAMLIT APP ---
 st.title("🎯 AIMS Group J Coupon Collector’s Problem Simulator")
@@ -64,24 +48,14 @@ This app simulates the **Coupon Collector's Problem**:
 - We keep drawing until all `n` coupons are collected.
 """)
 
-# User inputs
+# User input
 n = st.number_input("Enter number of different coupons (n):", min_value=1, value=10, step=1)
-trials = st.number_input("Enter number of trials for simulation:", min_value=1, value=50, step=1)
 
 # Run simulation
 if st.button("Run Simulation"):
     analytic = analytic_expected_time(n)
-    sim_summary = simulate(n, trials, seed=42)
+    mean_simulation = simulate(n)  # fixed 50 trials
 
     st.subheader("📊 Results")
-    st.write(f"**Analytic expected waiting time:** {analytic:.5f}")
-    st.json({k: v for k, v in sim_summary.items() if k != "all_results"})
-
-    # Show all trial results in expandable section
-    with st.expander("See all trial results"):
-        st.write(sim_summary["all_results"])
-
-    # Histogram using Streamlit-native plotting
-    counts, bins = pd.cut(sim_summary["all_results"], bins=20, retbins=True)
-    hist_data = pd.Series(sim_summary["all_results"]).value_counts().sort_index()
-    st.bar_chart(hist_data)
+    st.write(f"**Analytic expected waiting time:** {analytic:.2f} draws")
+    st.write(f"**Simulated average number of draws:** {mean_simulation:.2f} draws")
