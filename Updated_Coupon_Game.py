@@ -49,7 +49,7 @@ analytic = analytic_expected_time(n)
 mean_simulation = simulate(n)
 
 st.subheader("📊 Results")
-st.write(f"**Analytic expected waiting time:** {analytic:.2f} draws")
+st.write(f"**Expected waiting time:** {analytic:.2f} steps")
 #st.write(f"**Simulated average number of draws:** {mean_simulation:.2f} draws")
 
 
