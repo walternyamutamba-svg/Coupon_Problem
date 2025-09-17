@@ -37,7 +37,7 @@ st.markdown("""
 """)
 
 st.markdown("""
-This app simulates the **Coupon Collector's Problem**:
+This Web Application calculates the **Coupon Collector's Problem**:
 - There are `n` types of coupons.
 """)
 
