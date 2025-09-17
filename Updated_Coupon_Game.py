@@ -39,8 +39,6 @@ st.markdown("""
 st.markdown("""
 This app simulates the **Coupon Collector's Problem**:
 - There are `n` types of coupons.
-- Each draw gives one coupon uniformly at random.
-- We keep drawing until all `n` coupons are collected.
 """)
 
 # User input
