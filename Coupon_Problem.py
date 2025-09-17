@@ -32,7 +32,7 @@ def simulate(n: int, trials: int, seed: int = None):
     return {
         "(n)Represents the total number of distinct coupon types you need to collect": n,
         #"trials": trials,
-        "(mean)Mean (from your simulation) represents the average number of cereal boxes you would need to buy to collect all n different coupons": mean,
+        "(mean)Mean (from our simulation) represents the average number of cereal boxes you would need to buy to collect all n different coupons": mean,
         #"std": std,
         #"min": min(results),
         #"max": max(results),
