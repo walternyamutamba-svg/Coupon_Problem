@@ -41,8 +41,6 @@ def simulate(n: int, trials: int, seed: int = None):
 
 # --- STREAMLIT APP ---
 st.title("AIMS Group J Coupon Collector’s Problem Simulator ")
-# Title
-st.title("🎯 AIMS Group J Coupon Collector’s Problem Simulator")
 
 # Group members nicely formatted
 st.markdown("""
