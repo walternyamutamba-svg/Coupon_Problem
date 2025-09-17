@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import math
-import matplotlib.pyplot as plt
+import pandas as pd
 
 def harmonic_number(n: int) -> float:
     """Return the n-th harmonic number H_n = sum_{k=1}^n 1/k"""
@@ -66,12 +66,7 @@ if st.button("Run Simulation"):
     with st.expander("See all trial results"):
         st.write(sim_summary["all_results"])
 
-    # Histogram plot
-    fig, ax = plt.subplots()
-    ax.hist(sim_summary["all_results"], bins=20, edgecolor="black")
-    ax.axvline(analytic, color="red", linestyle="dashed", linewidth=1, label="Analytic Expectation")
-    ax.set_title("Distribution of Waiting Times")
-    ax.set_xlabel("Number of Draws")
-    ax.set_ylabel("Frequency")
-    ax.legend()
-    st.pyplot(fig)
+    # Histogram plot using Streamlit-native plotting
+    counts, bins = pd.cut(sim_summary["all_results"], bins=20, retbins=True)
+    hist_data = pd.Series(sim_summary["all_results"]).value_counts().sort_index()
+    st.bar_chart(hist_data)
