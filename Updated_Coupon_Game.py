@@ -4,7 +4,12 @@ import math
 
 # --- Coupon Collector Functions ---
 def harmonic_number(n: int) -> float:
-    return sum(1.0 / k for k in range(1, n+1))
+    """Approximate the n-th harmonic number for large n using H_n ≈ ln(n) + γ"""
+    gamma = 0.5772156649  # Euler–Mascheroni constant
+    if n > 1000:  # use approximation for large n
+        return math.log(n) + gamma
+    else:  # exact sum for small n
+        return sum(1.0 / k for k in range(1, n+1))
 
 def analytic_expected_time(n: int) -> float:
     return n * harmonic_number(n)
